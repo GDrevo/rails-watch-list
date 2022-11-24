@@ -5,6 +5,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params['id'])
+    @movies = Movie.all.where(id: params['id'])
   end
 
   def new

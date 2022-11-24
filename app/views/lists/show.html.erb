@@ -1,1 +1,23 @@
-<h1>This is the showpage of the <%= @list.name %>'s list</h1>
+<div class="banner">
+  <h1><%= @list.name %></h1>
+</div>
+<div class="container">
+  <div class="container-bar">
+<%# NEED: link_to à refaire bien %>
+<%#  %>
+<%#  %>
+    <%= link_to "add a movie", new_list_bookmark(params["id"]), class: "btn btn-gradient list-create-button" %>
+<%#  %>
+<%#  %>
+  </div>
+  <div class="lists-list">
+    <% @movies.each do |movie| %>
+        <div class="movie-card">
+          <%= link_to movie_path(params[:id]) do %>
+          <p><%= movie.title %></p>
+          <p><%= movie.overview %></p>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
